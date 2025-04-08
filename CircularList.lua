@@ -1,7 +1,6 @@
 ---Author: Nola
 ---Circular list
-
-------------------------------------------
+---made for Lua 5.1.5
 
 --then define the list itself:
 local Circular = {}
@@ -16,14 +15,14 @@ function Circular.new()
         Node.__index = Node;
 
         function Node.new(v)
-            local ins = setmetatable({}, Node)
+            local insNode = setmetatable({}, Node)
 
-            ins.v = v
-            ins.next = nil
-            ins.prev = nil
-            ins.flag = false
+            insNode.v = v
+            insNode.next = nil
+            insNode.prev = nil
+            insNode.flag = false
 
-            return ins
+            return insNode
         end
 
     local ins = setmetatable({}, Circular)
