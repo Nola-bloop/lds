@@ -1,6 +1,6 @@
 local CircularList = require("CircularList")
 
-local list = CircularList.new()
+local list = CircularList()
 
 list:insert("3")
 list:insert("7") --x

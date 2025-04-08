@@ -163,10 +163,12 @@ function Circular.new()
     return ins
 end
 
----Constructor of the Circular list
----@return table : a Circular list object
-function Circular.__call()
-    return Circular.new()
-end
+--metatables
+setmetatable(Circular, {
+    ---call the constructor
+    __call = function(cls, ...)
+        return cls:new(...)
+    end
+})
 
 return Circular
