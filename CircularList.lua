@@ -7,6 +7,8 @@
 local Circular = {}
 Circular.__index = Circular
 
+---Constructor of the Circular list
+---@return table : a Circular list object
 function Circular.new()
 
     --definition of nodes
@@ -93,6 +95,12 @@ function Circular.new()
     end
     
     return ins
+end
+
+---Constructor of the Circular list
+---@return table : a Circular list object
+function Circular.__call()
+    return Circular.new()
 end
 
 return Circular
