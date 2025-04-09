@@ -22,25 +22,25 @@ while not list:readFlag() do
     print(list:next())
 end
 ]]
-local Stack = require("Stack")
+local Queue = require("Queue")
 
-local stack = Stack()
+local list = Queue()
 
-stack:insert("p")
-stack:insert("o")
-stack:insert("m")
-stack:insert("m")
-stack:insert("e")
-stack:insert(" ")
-stack:insert("d")
-stack:insert("e")
-stack:insert(" ")
-stack:insert("t")
-stack:insert("e")
-stack:insert("r")
-stack:insert("r")
-stack:insert("e")
+list:insert("p")
+list:insert("o")
+list:insert("m")
+list:insert("m")
+list:insert("e")
+list:insert(" ")
+list:insert("d")
+list:insert("e")
+list:insert(" ")
+list:insert("t")
+list:insert("e")
+list:insert("r")
+list:insert("r")
+list:insert("e")
 
-while not stack:empty() do
-    print(stack:pop())
+while not list:empty() do
+    print(list:pop())
 end
