@@ -21,10 +21,14 @@ print(list:next())
 while not list:readFlag() do
     print(list:next())
 end
-]]
-local Queue = require("Queue")
 
-local list = Queue()
+
+
+
+
+local Heaptree = require("Heaptree")
+
+local list = Heaptree.new(nil, true)
 
 list:insert("p")
 list:insert("o")
@@ -41,6 +45,16 @@ list:insert("r")
 list:insert("r")
 list:insert("e")
 
-while not list:empty() do
-    print(list:pop())
+print(list:debug(true))
+]]
+
+
+local arr = 153
+local bin = ""..arr.." ; "
+
+while arr ~= 0 do
+    bin = bin .. (arr & 1)
+    arr = arr >> 1
 end
+
+print(bin)
