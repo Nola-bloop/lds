@@ -8,6 +8,10 @@ Queue.__index = Queue
 function Queue.new()
     --node definition
     local Node = {} Node.__index = Node
+
+    ---Node definition with a value and a single ptr to the next one
+    ---@param v any
+    ---@return table
     function Node.new(v)
         local insNode = setmetatable({}, Node)
 
@@ -17,7 +21,11 @@ function Queue.new()
         return insNode
     end
 
-    --Queue internal variables
+
+
+
+
+    --Queue private variables
     local ins = setmetatable({},Queue)
     local top = Node.new()
     local tail = top
@@ -26,6 +34,8 @@ function Queue.new()
     ---insert a value at the end of the Queue
     ---@param v any : the value to insert
     function Queue:insert(v)
+        if v == nil then return end
+
         count = count + 1
 
         if tail.v == nil then
@@ -52,12 +62,14 @@ function Queue.new()
     ---remove the top value
     ---@return number : the deleted value
     function Queue:pop()
-        count = count - 1
+        
 
         local out = top.v
         if not top.next then
+            if top.v ~= nil then count = count - 1 end
             top.v = nil
         else
+            count = count - 1
             top = top.next
         end
         return out

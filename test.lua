@@ -1,60 +1,50 @@
---[[
-local CircularList = require("CircularList")
+local Queue = require("Queue")
 
-local list = CircularList()
+local q = Queue()
 
-list:insert("3")
-list:insert("7") --x
-list:insert("2")
-list:insert("8")
-list:insert("9")
+print("insert: A")
+q:insert("A")
 
-list:next(1)
-list:remove()
-list:next(2)
-list:insert("peepoo")
+print("insert: B")
+q:insert("B")
+
+print("insert: C")
+q:insert("C")
+
+print("insert: D")
+q:insert("D")
+
+print("Pop : "..q:pop())
+print("Pop : "..q:pop())
+print("Pop : "..q:pop())
+print("Pop : "..q:pop())
+
+print("insert: E")
+q:insert("E")
+
+print("insert: F")
+q:insert("F")
+
+print("insert: G")
+q:insert("G")
+
+print("insert: H")
+q:insert("H")
+
+print("Pop : "..q:pop())
+print("Pop : "..q:pop())
+
+print("insert: I")
+q:insert("I")
+
+print("insert: J")
+q:insert("J")
 
 
 
-list:setFlag(true)
-print(list:next())
-while not list:readFlag() do
-    print(list:next())
+print("burning...")
+q = q:burn()
+
+for k, v in pairs(q) do
+    print(k,v)
 end
-
-
-
-
-
-local Heaptree = require("Heaptree")
-
-local list = Heaptree.new(nil, true)
-
-list:insert("p")
-list:insert("o")
-list:insert("m")
-list:insert("m")
-list:insert("e")
-list:insert(" ")
-list:insert("d")
-list:insert("e")
-list:insert(" ")
-list:insert("t")
-list:insert("e")
-list:insert("r")
-list:insert("r")
-list:insert("e")
-
-print(list:debug(true))
-]]
-
-
-local arr = 153
-local bin = ""..arr.." ; "
-
-while arr ~= 0 do
-    bin = bin .. (arr & 1)
-    arr = arr >> 1
-end
-
-print(bin)
